@@ -25,8 +25,13 @@ body {
   width: 100%;
   text-align: center;
   color: #fa545c;
+  font-weight: bold;
 }
 .bpm-display .tempo {
   font-size: 4em;
-  font-weight: bold;
+}
+.tempo-text {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  text-align: center;
 }
