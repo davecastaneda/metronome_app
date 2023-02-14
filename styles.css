@@ -1,37 +1,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 body {
-  font-family: "Raleway", sans-serif;
   color: #525252;
+  font-family: "Raleway", sans-serif;
 }
 .container {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
   height: 100vh;
+  justify-content: center;
 }
 .metronome {
   border: 1px solid #000;
   display: flex;
   flex-direction: column;
-  width: 300px;
   height: 250px;
   justify-content: space-between;
+  width: 300px;
 }
 .bpm-display {
-  width: 100%;
-  text-align: center;
   color: #fa545c;
   font-weight: bold;
+  text-align: center;
+  width: 100%;
 }
 .bpm-display .tempo {
   font-size: 4em;
 }
 .tempo-text {
   font-size: 0.8em;
-  text-transform: uppercase;
   text-align: center;
+  text-transform: uppercase;
+}
+.tempo-settings {
+  display: flex;
+  justify-content: space-between;
 }
