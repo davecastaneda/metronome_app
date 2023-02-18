@@ -63,16 +63,16 @@ input[type="range"] {
   background-color: transparent;
 }
 .start-stop {
-  width: 50px;
-  height: 50px;
-  font-size: 0.7em;
-  text-align: center;
   background: #fa545c;
   border-radius: 50%;
   color: #fff;
+  cursor: pointer;
+  font-size: 0.7em;
+  height: 50px;
   line-height: 50px;
   margin: 0 auto;
-  cursor: pointer;
+  text-align: center;
+  width: 50px;
 }
 .start-stop:hover {
   background: #ff656c;
