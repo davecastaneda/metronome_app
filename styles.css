@@ -66,6 +66,9 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
 }
+input[type="range"]:focus {
+  outline: none;
+}
 .start-stop {
   background: #fa545c;
   border-radius: 50%;
