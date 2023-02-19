@@ -60,7 +60,11 @@ body {
 }
 input[type="range"] {
   -webkit-appearance: none;
+  appearance: none;
   background-color: transparent;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
 }
 .start-stop {
   background: #fa545c;
