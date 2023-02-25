@@ -132,3 +132,8 @@ input[type="range"]::-moz-range-track {
 .measures .add-beats {
   line-height: 20px;
 }
+.beats-per-measure-text {
+  text-align: center;
+  font-size: 0.65em;
+  text-transform: uppercase;
+}
