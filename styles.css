@@ -6,6 +6,7 @@
 body {
   color: #525252;
   font-family: "Raleway", sans-serif;
+  user-select: none;
 }
 .container {
   align-items: center;
