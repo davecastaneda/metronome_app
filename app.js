@@ -43,6 +43,17 @@ addBeats.addEventListener('click', () => {
 function updateMetronome() {
     tempoDisplay.textContent = bpm;
     tempoSlider.value = bpm;
+
+    if (bpm <= 40) { tempoTextString = "Very Slow" };
+    if (bpm) { tempoTextString = "" };
+    if (bpm) { tempoTextString = "" };
+    if (bpm) { tempoTextString = "" };
+    if (bpm) { tempoTextString = "" };
+    if (bpm) { tempoTextString = "" };
+    if (bpm) { tempoTextString = "" };
+    if (bpm) { tempoTextString = "" };
+
+    tempoText.textContent = tempoTextString;
 }
 function validateTempo() {
     if (bpm <= 20) { return };
