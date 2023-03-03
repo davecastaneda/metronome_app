@@ -10,7 +10,7 @@ const measureCount = document.querySelector('.measure-count');
 
 let bpm = 140;
 let beatsPerMeasure = 4;
-let tempoTextString = 'Hot Dawg!';
+let tempoTextString = 'Medium';
 
 decreaseTempoBtn.addEventListener('click', () => {
     if (bpm <= 20) { return };
