@@ -44,14 +44,14 @@ function updateMetronome() {
     tempoDisplay.textContent = bpm;
     tempoSlider.value = bpm;
 
-    if (bpm <= 40) { tempoTextString = "Very Very Slow" };
+    if (bpm <= 40) { tempoTextString = "Very, Very Slow" };
     if (bpm > 40 && bpm < 80) { tempoTextString = "Very Slow" };
     if (bpm > 80 && bpm < 120) { tempoTextString = "Slow" };
     if (bpm > 120 && bpm < 180) { tempoTextString = "Moderate" };
     if (bpm > 180 && bpm < 220) { tempoTextString = "Moderately Fast" };
     if (bpm > 220 && bpm < 240) { tempoTextString = "Fast" };
     if (bpm > 240 && bpm < 260) { tempoTextString = "VERY Fast" };
-    if (bpm > 260 && bpm <= 280) { tempoTextString = "VERY VERY FAST" };
+    if (bpm > 260 && bpm <= 280) { tempoTextString = "VERY, VERY FAST" };
 
     tempoText.textContent = tempoTextString;
 }
