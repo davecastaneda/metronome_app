@@ -8,6 +8,9 @@ const subtractBeats = document.querySelector('.subtract-beats');
 const addBeats = document.querySelector('.add-beats');
 const measureCount = document.querySelector('.measure-count');
 
+const click1 = new Audio('LDSS6.wav');
+const click2 = new Audio('LDSS8.wav');
+
 let bpm = 140;
 let beatsPerMeasure = 4;
 let tempoTextString = 'Medium';
