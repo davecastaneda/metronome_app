@@ -12,5 +12,13 @@ function Timer(callback, timeInterval, options) {
         if (options.immediate) {
             callback();
         }
+
+        this.timeout = setTimeout(this.round, this.timeInterval);
+        console.log('Timer Started');
+    }
+    // Method to stop the timer
+    this.stop = () => {
+        clearTimeout(this.timeout);
+        console.log('Timer Stopped');
     }
 }
