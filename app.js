@@ -26,6 +26,7 @@ increaseTempoBtn.addEventListener('click', () => {
     bpm++;
     validateTempo();
     updateMetronome();
+    console.log('HELLO, IT IS MEEE!!!')
 });
 tempoSlider.addEventListener('input', () => {
     bpm = tempoSlider.value;
