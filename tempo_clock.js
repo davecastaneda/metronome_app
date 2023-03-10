@@ -1,12 +1,12 @@
-// Timer Constructor Function
+// Add accurate timer constructor function
 function Timer(callback, timeInterval, options) {
     this.timeInterval = timeInterval;
 
-    // Method to start timer
+    // Add method to start timer
     this.start = () => {
-        // Sets expected time - this is  when we start the timer, plus whatever the time interval is
+        // Set the expected time - the moment in time that we start the timer, plus whatever the time interval is
         this.expected = Date.now() + this.timeInterval;
-        // Starts the timeout and saves the ID in a property, so we can cancel it later
+        // Start the timeout and save the ID in a property, so we can cancel it later
         this.theTimeout = null;
 
         if (options.immediate) {
@@ -16,9 +16,29 @@ function Timer(callback, timeInterval, options) {
         this.timeout = setTimeout(this.round, this.timeInterval);
         console.log('Timer Started');
     }
-    // Method to stop the timer
+    // Add method to stop the timer
     this.stop = () => {
         clearTimeout(this.timeout);
         console.log('Timer Stopped');
+    }
+    // Round method that takes care of running the callback and adjusting the time
+    this.round = () => {
+        console.log('timeout', this.timeout);
+        // The drift will be the current moment in time for this round, minus the expected time
+        let drift = Date.now() - this.expected;
+        // Run error callback if drift is greater than time interval, and if the callback is provided
+        if (drift > this.timeInterval) {
+            // if error callback is provided
+            if (options.errorCallback) {
+                options.errorCallback();
+            }
+        }
+        callback();
+        // Increment expected time by the time interval for every round after running the callback function
+        this.expected += this.timeInterval;
+        console.log('Drift: ', drift);
+        console.log('Next round time interval: ', this.timeInterval - drift);
+        // Run timeout again, and set the timeInterval of the next iteration to the original time interval - minus the drift
+        this.timeout = setTimeout(this.round, this.timeInterval - drift);
     }
 }
