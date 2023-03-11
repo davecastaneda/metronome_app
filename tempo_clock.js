@@ -42,3 +42,5 @@ function Timer(callback, timeInterval, options) {
         this.timeout = setTimeout(this.round, this.timeInterval - drift);
     }
 }
+
+export default Timer;
