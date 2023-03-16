@@ -54,10 +54,10 @@ body {
   color: #fff;
 }
 .tempo-settings .decrease-tempo {
-  line-height: 24px;
+  line-height: 25px;
 }
 .tempo-settings .increase-tempo {
-  line-height: 31px;
+  line-height: 32px;
 }
 input[type="range"] {
   appearance: none;
