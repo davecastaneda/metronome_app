@@ -1,4 +1,4 @@
-import { Timer } from "./tempo_clock.js";
+import Timer from "./tempo_clock.js";
 
 const tempoDisplay = document.querySelector('.tempo');
 const tempoText = document.querySelector('.tempo-text');
@@ -15,6 +15,8 @@ const click2 = new Audio('LDSS8.wav');
 
 let bpm = 140;
 let beatsPerMeasure = 4;
+let count = 0;
+let isRunning = false;
 let tempoTextString = 'Medium';
 
 decreaseTempoBtn.addEventListener('click', () => {
@@ -34,20 +36,37 @@ tempoSlider.addEventListener('input', () => {
     validateTempo();
     updateMetronome();
 });
+
 subtractBeats.addEventListener('click', () => {
-    if (beatsPerMeasure <= 1) { return };
+    if (beatsPerMeasure <= 2) { return };
     beatsPerMeasure--;
     measureCount.textContent = beatsPerMeasure;
+    count = 0;
 });
 addBeats.addEventListener('click', () => {
-    if (beatsPerMeasure >= 24) { return };
+    if (beatsPerMeasure >= 12) { return };
     beatsPerMeasure++;
     measureCount.textContent = beatsPerMeasure;
+    count = 0;
+});
+
+startStopBtn.addEventListener('click', () => {
+    count = 0;
+    if (!isRunning) {
+        metronome.start();
+        isRunning = true;
+        startStopBtn.textContent = 'STOP';
+    } else {
+        metronome.stop();
+        isRunning = false;
+        startStopBtn.textContent = 'START';
+    }
 });
 
 function updateMetronome() {
     tempoDisplay.textContent = bpm;
     tempoSlider.value = bpm;
+    metronome.timeInterval = 60000 / bpm;
 
     if (bpm <= 40) { tempoTextString = "Very, Very Slow" };
     if (bpm > 40 && bpm < 80) { tempoTextString = "Very Slow" };
@@ -67,7 +86,18 @@ function validateTempo() {
 }
 
 function playClick() {
-    LDSS6.play();
+    console.log(count);
+    if (count === beatsPerMeasure) {
+        count = 0;
+    }
+    if (count === 0) {
+        click1.play();
+        click1.currentTime = 0;
+    } else {
+        click2.play();
+        click2.currentTime = 0;
+    }
+    count++;
 }
 
 const metronome = new Timer(playClick, 60000 / bpm, { immediate: true });
